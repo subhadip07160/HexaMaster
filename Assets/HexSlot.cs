@@ -1,37 +1,39 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class HexSlot : MonoBehaviour
 {
-    public static List<HexSlot> slots = new List<HexSlot>();
+    public int q, r; // grid coordinates
+    public bool occupied = false;
 
-    public bool IsEmpty = true;
+    public List<HexSlot> neighbors = new List<HexSlot>();
 
-    private void Awake()
+    // highlight visuals
+    private Renderer rend;
+    private Color defaultColor;
+    public Color highlightColor = Color.yellow;
+
+    void Awake()
     {
-        slots.Add(this);
+        rend = GetComponentInChildren<Renderer>();
+
+        if (rend != null)
+            defaultColor = rend.material.color;
     }
 
-    public void Occupy(DragHex tile)
+    public void AddNeighbor(HexSlot s)
     {
-        IsEmpty = false;
+        if (!neighbors.Contains(s))
+            neighbors.Add(s);
     }
 
-    public static HexSlot FindNearest(Vector3 position)
+    public void ShowHighlight(bool status)
     {
-        float minDist = Mathf.Infinity;
-        HexSlot nearest = null;
+        if (rend == null) return;
 
-        foreach (var slot in slots)
-        {
-            float dist = Vector3.Distance(position, slot.transform.position);
-            if (dist < minDist)
-            {
-                minDist = dist;
-                nearest = slot;
-            }
-        }
-
-        return (minDist < 1.2f) ? nearest : null; // snap limit
+        if (status)
+            rend.material.color = highlightColor;
+        else
+            rend.material.color = defaultColor;
     }
 }

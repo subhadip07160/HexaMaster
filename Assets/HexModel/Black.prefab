@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 802518026373480180}
   m_Layer: 0
   m_Name: Black
-  m_TagString: Untagged
+  m_TagString: HexSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,4 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d876fb27659f7194681f503f595bd278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsEmpty: 1
+  occupied: 0
+  highlight: {fileID: 0}
