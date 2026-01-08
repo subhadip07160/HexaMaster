@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4771482771972773109}
   - component: {fileID: 6029103005304089853}
   - component: {fileID: 2168961833744641665}
-  - component: {fileID: 4753039294489966793}
+  - component: {fileID: 1345345594978147661}
   m_Layer: 0
   m_Name: Hex
   m_TagString: Untagged
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c19eb5b7a34e9341afd0acbd0043152, type: 2}
+  - {fileID: 2100000, guid: d75359ccefe714c40a8d23026fbdc0db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,7 +110,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.049999997, z: 0.86602545}
   m_Center: {x: 0, y: 0.074999996, z: 0}
---- !u!114 &4753039294489966793
+--- !u!114 &1345345594978147661
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,10 +119,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7247437646506836430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68aaa5b350e83134e87e2bd961e9e1ac, type: 3}
+  m_Script: {fileID: 11500000, guid: e1a5796c4758474468d157564f8e88fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapRange: 1.5
+  number: 4
+  color: 0
+  span: 3
+  numberText: {fileID: 3416835765987631693}
+  meshRenderer: {fileID: 6029103005304089853}
 --- !u!1 &7808212166288880180
 GameObject:
   m_ObjectHideFlags: 0

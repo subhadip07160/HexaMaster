@@ -1,39 +1,51 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class HexSlot : MonoBehaviour
 {
-    public int q, r; // grid coordinates
-    public bool occupied = false;
+    // axial coordinates
+    public int q;
+    public int r;
 
-    public List<HexSlot> neighbors = new List<HexSlot>();
+    // piece placed on this slot
+    public HexPiece currentPiece;
 
-    // highlight visuals
-    private Renderer rend;
-    private Color defaultColor;
-    public Color highlightColor = Color.yellow;
+    // blocked state
+    public bool isBlocked = false;
 
-    void Awake()
+    // 🔒 read-only empty check
+    public bool IsEmpty => currentPiece == null && !isBlocked;
+
+    // neighbours (PRIVATE)
+    private List<HexSlot> neighbours = new List<HexSlot>();
+
+    // ================= NEIGHBOURS =================
+    public void AddNeighbor(HexSlot slot)
     {
-        rend = GetComponentInChildren<Renderer>();
-
-        if (rend != null)
-            defaultColor = rend.material.color;
+        if (!neighbours.Contains(slot))
+            neighbours.Add(slot);
     }
 
-    public void AddNeighbor(HexSlot s)
+    public List<HexSlot> GetNeighbors()
     {
-        if (!neighbors.Contains(s))
-            neighbors.Add(s);
+        return neighbours;
     }
 
-    public void ShowHighlight(bool status)
+    // ================= SLOT CONTROL =================
+    public void SetPiece(HexPiece piece)
     {
-        if (rend == null) return;
+        currentPiece = piece;
+        piece.transform.position = transform.position;
+    }
 
-        if (status)
-            rend.material.color = highlightColor;
-        else
-            rend.material.color = defaultColor;
+    public void Clear()
+    {
+        currentPiece = null;
+    }
+
+    public void SetBlocked(bool value)
+    {
+        isBlocked = value;
     }
 }

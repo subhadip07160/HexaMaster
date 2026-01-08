@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296558191539e3f4d9d55782c53712dc, type: 3}
+  m_Name: HexLevel
+  m_EditorClassIdentifier: 
+  levelNumber: 0
+  gridRadius: 2
+  blockedCellCount: 0
+  spawnPieces:
+  - piece:
+      color: 0
+      number: 4
+      span: 2
+    count: 5
+  - piece:
+      color: 1
+      number: 4
+      span: 3
+    count: 3
+  - piece:
+      color: 2
+      number: 7
+      span: 3
+    count: 2
+  - piece:
+      color: 2
+      number: 1
+      span: 1
+    count: 4
+  matchRules:
+  - number: 1
+    requiredCount: 3
+    score: 10
+  - number: 4
+    requiredCount: 3
+    score: 20
+  - number: 7
+    requiredCount: 4
+    score: 40
+  targetScore: 150
+  maxMoves: 25
+  stars:
+  - score: 60
+  - score: 100
+  - score: 150
